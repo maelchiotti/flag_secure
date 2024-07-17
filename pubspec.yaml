@@ -1,0 +1,25 @@
+name: flag_secure
+description: "A Flutter plugin to manage Android's FLAG_SECURE at runtime."
+repository: https://github.com/maelchiotti/flag_secure
+
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  lint: ^2.3.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.maelchiotti.flag_secure.flag_secure
+        pluginClass: FlagSecurePlugin
