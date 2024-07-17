@@ -10,33 +10,33 @@ class MethodChannelFlagSecure extends FlagSecurePlatform {
   @visibleForTesting
   static const methodChannel = MethodChannel('flag_secure');
 
-  /// Returns whether `FLAG_SECURE` is enabled.
+  /// Returns whether `FLAG_SECURE` is set.
   @override
-  Future<bool?> isFlagSecureEnabled() async {
+  Future<bool?> isSet() async {
     if (!Platform.isAndroid) {
       return Future.value();
     }
 
-    return await methodChannel.invokeMethod("isFlagSecureEnabled");
+    return await methodChannel.invokeMethod("isSet");
   }
 
-  /// Enables `FLAG_SECURE`.
+  /// Sets `FLAG_SECURE`.
   @override
-  Future<void> enableFlagSecure() async {
+  Future<void> set() async {
     if (!Platform.isAndroid) {
       return Future.value();
     }
 
-    return await methodChannel.invokeMethod("enableFlagSecure");
+    return await methodChannel.invokeMethod("set");
   }
 
-  /// Disables `FLAG_SECURE`.
+  /// Unsets `FLAG_SECURE`.
   @override
-  Future<void> disableFlagSecure() async {
+  Future<void> unset() async {
     if (!Platform.isAndroid) {
       return Future.value();
     }
 
-    return await methodChannel.invokeMethod("disableFlagSecure");
+    return await methodChannel.invokeMethod("unset");
   }
 }

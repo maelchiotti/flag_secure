@@ -4,7 +4,7 @@ import 'package:flag_secure/flag_secure_platform_interface.dart';
 
 /// A Flutter plugin to manage Android's `FLAG_SECURE` at runtime.
 class FlagSecure {
-  /// Returns whether `FLAG_SECURE` is enabled.
+  /// Returns whether `FLAG_SECURE` is set.
   ///
   /// The result can be null.
   ///
@@ -13,44 +13,44 @@ class FlagSecure {
   /// Example:
   /// ```dart
   /// try {
-  ///   final bool? enabled = await FlagSecure.isFlagSecureEnabled;
+  ///   final bool? isSet = await FlagSecure.isSet;
   /// } on PlatformException {
   ///   // Handle exception
   /// }
   /// ```
-  static Future<bool?> get isFlagSecureEnabled {
-    return FlagSecurePlatform.instance.isFlagSecureEnabled();
+  static Future<bool?> get isSet {
+    return FlagSecurePlatform.instance.isSet();
   }
 
-  /// Enables `FLAG_SECURE`.
+  /// Sets `FLAG_SECURE`.
   ///
   /// This can throw a `PlatformException` and should be surrounded with a `try/catch`.
   ///
   /// Example:
   /// ```dart
   /// try {
-  ///   await FlagSecure.enableFlagSecure();
+  ///   await FlagSecure.set();
   /// } on PlatformException {
   ///   // Handle exception
   /// }
   /// ```
-  static Future<void> enableFlagSecure() {
-    return FlagSecurePlatform.instance.enableFlagSecure();
+  static Future<void> set() {
+    return FlagSecurePlatform.instance.set();
   }
 
-  /// Disables `FLAG_SECURE`.
+  /// Unsets `FLAG_SECURE`.
   ///
   /// This can throw a `PlatformException` and should be surrounded with a `try/catch`.
   ///
   /// Example:
   /// ```dart
   /// try {
-  ///   await FlagSecure.disableFlagSecure();
+  ///   await FlagSecure.unset();
   /// } on PlatformException {
   ///   // Handle exception
   /// }
   /// ```
-  static Future<void> disableFlagSecure() {
-    return FlagSecurePlatform.instance.disableFlagSecure();
+  static Future<void> unset() {
+    return FlagSecurePlatform.instance.unset();
   }
 }

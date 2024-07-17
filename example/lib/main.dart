@@ -17,31 +17,31 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool? _isFlagSecureEnabled;
+  bool? _isFlagSecureSet;
 
   String get _flagSecureLabel {
-    if (_isFlagSecureEnabled == null) {
+    if (_isFlagSecureSet == null) {
       return 'unknown';
     }
 
-    return _isFlagSecureEnabled! ? 'enabled' : 'disabled';
+    return _isFlagSecureSet! ? 'set' : 'not set';
   }
 
   @override
   void initState() {
     super.initState();
 
-    _updateIsFlagSecureEnabled();
+    _updateIsFlagSecureSet();
   }
 
-  Future<void> _updateIsFlagSecureEnabled() async {
-    bool? enabled;
+  Future<void> _updateIsFlagSecureSet() async {
+    bool? isSet;
     try {
-      enabled = await FlagSecure.isFlagSecureEnabled;
+      isSet = await FlagSecure.isSet;
     } on PlatformException catch (e) {
       log(e.toString());
 
-      enabled = null;
+      isSet = null;
     }
 
     if (!mounted) {
@@ -49,28 +49,28 @@ class _MyAppState extends State<MyApp> {
     }
 
     setState(() {
-      _isFlagSecureEnabled = enabled;
+      _isFlagSecureSet = isSet;
     });
   }
 
-  Future<void> _enableFlagSecure() async {
+  Future<void> _setFlagSecure() async {
     try {
-      await FlagSecure.enableFlagSecure();
+      await FlagSecure.set();
     } on PlatformException catch (e) {
       log(e.toString());
     }
 
-    await _updateIsFlagSecureEnabled();
+    await _updateIsFlagSecureSet();
   }
 
-  Future<void> _disableFlagSecure() async {
+  Future<void> _unsetFlagSecure() async {
     try {
-      await FlagSecure.disableFlagSecure();
+      await FlagSecure.unset();
     } on PlatformException catch (e) {
       log(e.toString());
     }
 
-    await _updateIsFlagSecureEnabled();
+    await _updateIsFlagSecureSet();
   }
 
   @override
@@ -87,12 +87,12 @@ class _MyAppState extends State<MyApp> {
               Text('FLAG_SECURE: $_flagSecureLabel'),
               const Padding(padding: EdgeInsets.symmetric(vertical: 16.0)),
               FilledButton(
-                onPressed: _enableFlagSecure,
-                child: const Text('Enable'),
+                onPressed: _setFlagSecure,
+                child: const Text('Set'),
               ),
               FilledButton(
-                onPressed: _disableFlagSecure,
-                child: const Text('Disable'),
+                onPressed: _unsetFlagSecure,
+                child: const Text('Unset'),
               ),
             ],
           ),

@@ -14,27 +14,27 @@ See the [installing instructions](https://pub.dev/packages/flag_secure/install).
 
   ```dart
   try {
-    final bool? enabled = await FlagSecure.isFlagSecureEnabled;
+    final bool? isSet = await FlagSecure.isSet;
   } on PlatformException {
     // Handle exception
   }
   ```
 
-- Enable `FLAG_SECURE`:
+- Set `FLAG_SECURE`:
 
   ```dart
   try {
-    await FlagSecure.enableFlagSecure();
+    await FlagSecure.set();
   } on PlatformException {
     // Handle exception
   }
   ```
 
-- Disable `FLAG_SECURE`:
+- Unset `FLAG_SECURE`:
 
   ```dart
   try {
-    await FlagSecure.disableFlagSecure();
+    await FlagSecure.unset();
   } on PlatformException {
     // Handle exception
   }

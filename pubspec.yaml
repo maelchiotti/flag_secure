@@ -4,7 +4,7 @@ description: "A Flutter plugin to manage Android's FLAG_SECURE at runtime."
 repository: https://github.com/maelchiotti/flag_secure
 issue_tracker: https://github.com/maelchiotti/flag_secure/issues
 
-version: 1.0.2
+version: 2.0.0
 
 environment:
   sdk: ">=3.4.3 <4.0.0"

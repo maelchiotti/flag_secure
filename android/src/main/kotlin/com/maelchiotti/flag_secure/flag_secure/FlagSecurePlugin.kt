@@ -14,94 +14,94 @@ import io.flutter.plugin.common.MethodChannel.Result
  * A Flutter plugin to manage Android's `FLAG_SECURE` at runtime.
  */
 class FlagSecurePlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
-  private lateinit var channel: MethodChannel
+    private lateinit var channel: MethodChannel
 
-  private var activity: Activity? = null
+    private var activity: Activity? = null
 
-  override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flag_secure")
-    channel.setMethodCallHandler(this)
-  }
-
-  override fun onMethodCall(call: MethodCall, result: Result) {
-    when (call.method) {
-      "isFlagSecureEnabled" -> isFlagSecureEnabled(result)
-
-      "enableFlagSecure" -> enableFlagSecure(result)
-      "disableFlagSecure" -> disableFlagSecure(result)
-
-      else -> result.notImplemented()
-    }
-  }
-
-  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
-  }
-
-  /**
-   * Returns whether `FLAG_SECURE` is enabled.
-   *
-   * @return `true` if `FLAG_SECURE` is enabled, `false` otherwise.
-   */
-  private fun isFlagSecureEnabled(result: Result) {
-    val window = activity?.window
-
-    if (window == null) {
-      result.error("not-found-activity", "Not found 'activity'.", null)
-      return
+    override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flag_secure")
+        channel.setMethodCallHandler(this)
     }
 
-    var flags = window.attributes.flags
-    var isFlagSecureEnabled = (flags and WindowManager.LayoutParams.FLAG_SECURE) != 0
+    override fun onMethodCall(call: MethodCall, result: Result) {
+        when (call.method) {
+            "isSet" -> isFlagSecureSet(result)
 
-    result.success(isFlagSecureEnabled)
-  }
+            "set" -> setFlagSecure(result)
+            "unset" -> unsetFlagSecure(result)
 
-  /**
-   * Enables `FLAG_SECURE`.
-   */
-  private fun enableFlagSecure(result: Result) {
-    val window = activity?.window
-
-    if (window == null) {
-      result.error("not-found-activity", "Not found 'activity'.", null)
-      return
+            else -> result.notImplemented()
+        }
     }
 
-    window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
-
-    result.success(true)
-  }
-
-  /**
-   * Disables `FLAG_SECURE`.
-   */
-  private fun disableFlagSecure(result: Result) {
-    val window = activity?.window
-
-    if (window == null) {
-      result.error("not-found-activity", "Not found 'activity'.", null)
-      return
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        channel.setMethodCallHandler(null)
     }
 
-    window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+    /**
+     * Returns whether `FLAG_SECURE` is set.
+     *
+     * @return `true` if `FLAG_SECURE` is set, `false` otherwise.
+     */
+    private fun isFlagSecureSet(result: Result) {
+        val window = activity?.window
 
-    result.success(true)
-  }
+        if (window == null) {
+            result.error("not-found-activity", "Not found 'activity'.", null)
+            return
+        }
 
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    activity = binding.activity
-  }
+        var flags = window.attributes.flags
+        var isFlagSecureSet = (flags and WindowManager.LayoutParams.FLAG_SECURE) != 0
 
-  override fun onDetachedFromActivityForConfigChanges() {
-    activity = null
-  }
+        result.success(isFlagSecureSet)
+    }
 
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    activity = binding.activity
-  }
+    /**
+     * Sets `FLAG_SECURE`.
+     */
+    private fun setFlagSecure(result: Result) {
+        val window = activity?.window
 
-  override fun onDetachedFromActivity() {
-    activity = null
-  }
+        if (window == null) {
+            result.error("not-found-activity", "Not found 'activity'.", null)
+            return
+        }
+
+        window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+
+        result.success(true)
+    }
+
+    /**
+     * Unsets `FLAG_SECURE`.
+     */
+    private fun unsetFlagSecure(result: Result) {
+        val window = activity?.window
+
+        if (window == null) {
+            result.error("not-found-activity", "Not found 'activity'.", null)
+            return
+        }
+
+        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+
+        result.success(true)
+    }
+
+    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        activity = binding.activity
+    }
+
+    override fun onDetachedFromActivityForConfigChanges() {
+        activity = null
+    }
+
+    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        activity = binding.activity
+    }
+
+    override fun onDetachedFromActivity() {
+        activity = null
+    }
 }

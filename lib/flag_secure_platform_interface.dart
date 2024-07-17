@@ -22,18 +22,18 @@ abstract class FlagSecurePlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  /// Returns whether `FLAG_SECURE` is enabled.
-  Future<bool?> isFlagSecureEnabled() async {
-    throw UnimplementedError('isFlagSecureEnabled() has not been implemented.');
+  /// Returns whether `FLAG_SECURE` is set.
+  Future<bool?> isSet() async {
+    throw UnimplementedError('isSet() has not been implemented.');
   }
 
-  /// Enables `FLAG_SECURE`.
-  Future<void> enableFlagSecure() async {
-    throw UnimplementedError('enableFlagSecure() has not been implemented.');
+  /// Sets `FLAG_SECURE`.
+  Future<void> set() async {
+    throw UnimplementedError('set() has not been implemented.');
   }
 
-  /// Disables `FLAG_SECURE`.
-  Future<void> disableFlagSecure() async {
-    throw UnimplementedError('disableFlagSecure() has not been implemented.');
+  /// Unsets `FLAG_SECURE`.
+  Future<void> unset() async {
+    throw UnimplementedError('unset() has not been implemented.');
   }
 }
