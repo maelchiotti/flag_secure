@@ -1,12 +1,13 @@
 name: flag_secure_example
-description: "Example on how to use the flag_secure plugin."
+description: "An example on how to use the flag_secure plugin."
+
 repository: https://github.com/maelchiotti/flag_secure/example
 
-version: 0.0.1
+version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ">=3.4.3 <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flag_secure:
@@ -15,7 +16,7 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
-  lint: ^2.3.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
