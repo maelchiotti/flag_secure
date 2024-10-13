@@ -82,21 +82,23 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('flag_secure example app'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('FLAG_SECURE: $_flagSecureLabel'),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 16.0)),
-              FilledButton(
-                onPressed: _setFlagSecure,
-                child: const Text('Set'),
-              ),
-              FilledButton(
-                onPressed: _unsetFlagSecure,
-                child: const Text('Unset'),
-              ),
-            ],
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('FLAG_SECURE: $_flagSecureLabel'),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 16.0)),
+                FilledButton(
+                  onPressed: _setFlagSecure,
+                  child: const Text('Set'),
+                ),
+                FilledButton(
+                  onPressed: _unsetFlagSecure,
+                  child: const Text('Unset'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
