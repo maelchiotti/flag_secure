@@ -1,8 +1,9 @@
 import 'package:flag_secure/flag_secure_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
+/// Platform to handle the `FLAG_SECURE`.
 abstract class FlagSecurePlatform extends PlatformInterface {
-  /// Constructs a FlagSecurePlatform.
+  /// Constructs the platform.
   FlagSecurePlatform() : super(token: _token);
 
   static final Object _token = Object();
