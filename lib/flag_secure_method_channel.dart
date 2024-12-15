@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:flag_secure/flag_secure_platform_interface.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:universal_io/io.dart';
 
 /// An implementation of [FlagSecurePlatform] that uses method channels.
 class MethodChannelFlagSecure extends FlagSecurePlatform {
