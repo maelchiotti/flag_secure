@@ -35,4 +35,4 @@ A new method goes through the four layers: the public API, the platform interfac
 
 ## Git
 
-Commits on `main`, prefixed `fix:` or `docs:`, and a `vX.Y.Z` commit for each version. `CHANGELOG.md` follows Keep a Changelog.
+Commits on `main`, and a `vX.Y.Z` commit for each version. `CHANGELOG.md` follows Keep a Changelog.
