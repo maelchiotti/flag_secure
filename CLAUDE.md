@@ -35,4 +35,6 @@ A new method goes through the four layers: the public API, the platform interfac
 
 ## Git
 
+Every issue and pull request has a label for its kind: `bug`, `enhancement` or `documentation`. A pull request gets the label of its issue.
+
 Commits on `main`, and a `vX.Y.Z` commit for each version. `CHANGELOG.md` follows Keep a Changelog.
