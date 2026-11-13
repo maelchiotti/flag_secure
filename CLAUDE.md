@@ -6,6 +6,8 @@ Apps call it to hide their content: treat any change of a public signature as br
 
 ## Commands
 
+The Flutter version is pinned in `.fvmrc`. Locally, run Flutter and Dart through `fvm` (`fvm flutter ...`, `fvm dart ...`).
+
 - Install: `flutter pub get` (and in `example`).
 - Format: `dart format <files>` (default width, 80).
 - Analyze: `dart analyze --fatal-infos`.
