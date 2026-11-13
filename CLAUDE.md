@@ -2,7 +2,7 @@
 
 Flutter plugin published on pub.dev to set, unset and read Android's `FLAG_SECURE` at runtime (it hides the app from screenshots, screen recordings and the recent apps). Android only; on other platforms the methods do nothing and `isSet` returns `null`. BSD-3-Clause.
 
-Its main user is Material Notes (`maelchiotti/LocalMaterialNotes`, `SystemUtils().setFlagSecureIfNeeded()`): treat any change of a public signature as breaking.
+Apps call it to hide their content: treat any change of a public signature as breaking.
 
 ## Commands
 
