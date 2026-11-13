@@ -29,7 +29,7 @@ A new method goes through the four layers: the public API, the platform interfac
 
 ## Code style
 
-- `flutter_lints` with `strict-inference`, `public_member_api_docs`, `always_use_package_imports`, `always_put_control_body_on_new_line`, `curly_braces_in_flow_control_structures` and `unawaited_futures`, as in Material Notes.
+- `flutter_lints` with `strict-inference`, `public_member_api_docs`, `always_use_package_imports`, `always_put_control_body_on_new_line`, `curly_braces_in_flow_control_structures` and `unawaited_futures`.
 - Package imports (`package:flag_secure/...`).
 - Every public member has a `///` doc comment. Kotlin functions have a KDoc comment.
 
