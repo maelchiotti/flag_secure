@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 2.1.0
+## 2.1.0 - 2026-11-15
 
 ### Changed
 
@@ -14,18 +14,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Fixed
 
-- Apply `FLAG_SECURE` again to a new activity attached to the engine (for example after a configuration change), as set or unset last.
+- Apply `FLAG_SECURE` again to a new activity attached to the engine (for example after a configuration change), as set or unset last
 
-## 2.0.2
+## 2.0.2 - 2024-12-15
 
-## Changed
+### Changed
 
-- Swapped [dart:io](https://dart.dev/libraries/dart-io)
-  with [universal_io](https://pub.dev/packages/universal_io)
+- Swapped [dart:io](https://dart.dev/libraries/dart-io) with [universal_io](https://pub.dev/packages/universal_io)
 
-## 2.0.1
+## 2.0.1 - 2024-10-13
 
-## Changed
+### Changed
 
 - Loosen SDK requirement
 
@@ -33,27 +32,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Missing scroll view in the example
 
-## 2.0.0
+## 2.0.0 - 2024-07-17
 
-### BREAKING CHANGE
+### BREAKING CHANGES
 
 - Rename all methods to simplify them:
     - `isFlagSecureEnabled` → `isSet`
     - `enableFlagSecure()` → `set()`
     - `disableFlagSecure()` → `unset()`
 
-## 1.0.2
+## 1.0.2 - 2024-07-17
 
 ### Fixed
 
-- Fix some documentation issues.
+- Fix some documentation issues
 
-## 1.0.1
+## 1.0.1 - 2024-07-17
 
 ### Fixed
 
-- Fix some documentation issues.
+- Fix some documentation issues
 
-## 1.0.0
+## 1.0.0 - 2024-07-17
 
 Initial release.
