@@ -12,7 +12,7 @@ The Flutter version is pinned in `.fvmrc`. Locally, run Flutter and Dart through
 - Format: `dart format <files>` (default width, 80).
 - Analyze: `dart analyze --fatal-infos`.
 - Example: `cd example && flutter run` on an Android device or emulator; the native code is only checked by building it (`cd example && flutter build apk --debug`, needs the Android SDK).
-- Publish: `dart pub publish --dry-run` only; the maintainer publishes (`RELEASING.md`).
+- Publish: `dart pub publish --dry-run` only; the maintainer publishes.
 
 There are no tests. The `check` skill runs every check and the `release` skill prepares a version.
 
@@ -39,4 +39,4 @@ A new method goes through the four layers: the public API, the platform interfac
 
 Every issue and pull request has a label for its kind: `bug`, `enhancement` or `documentation`. A pull request gets the label of its issue.
 
-Commits on `main`, and a `vX.Y.Z` commit for each version. `CHANGELOG.md` follows Keep a Changelog.
+Commits on `main`, and a `vX.Y.Z` commit for each version. `CHANGELOG.md` follows Keep a Changelog: one `## X.Y.Z - YYYY-MM-DD` section per version, with `### BREAKING CHANGES` (listed first), `### Added`, `### Changed`, `### Removed` and `### Fixed` sections, one line per change ending with a period, never wrapped.
