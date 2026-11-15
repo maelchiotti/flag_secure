@@ -39,4 +39,4 @@ A new method goes through the four layers: the public API, the platform interfac
 
 Every issue and pull request has a label for its kind: `bug`, `enhancement` or `documentation`. A pull request gets the label of its issue.
 
-Commits on `main`, and a `vX.Y.Z` commit for each version. `CHANGELOG.md` follows Keep a Changelog: one `## X.Y.Z - YYYY-MM-DD` section per version, with `### BREAKING CHANGES` (listed first), `### Added`, `### Changed`, `### Removed` and `### Fixed` sections, one line per change with no final period, never wrapped.
+Commits on `main`, and a `vX.Y.Z` commit for each version. `CHANGELOG.md` follows Keep a Changelog: one `## X.Y.Z - YYYY-MM-DD` section per version, with `### BREAKING CHANGES` (listed first), `### Added`, `### Changed`, `### Removed` and `### Fixed` sections, one line per change ending with a period, never wrapped.
