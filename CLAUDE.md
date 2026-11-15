@@ -12,7 +12,7 @@ The Flutter version is pinned in `.fvmrc`. Locally, run Flutter and Dart through
 - Format: `dart format <files>` (default width, 80).
 - Analyze: `dart analyze --fatal-infos`.
 - Example: `cd example && flutter run` on an Android device or emulator; the native code is only checked by building it (`cd example && flutter build apk --debug`, needs the Android SDK).
-- Publish: `dart pub publish --dry-run` only; the maintainer publishes (`RELEASING.md`).
+- Publish: `dart pub publish --dry-run` only; the maintainer publishes.
 
 There are no tests. The `check` skill runs every check and the `release` skill prepares a version.
 
