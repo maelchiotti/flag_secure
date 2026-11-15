@@ -18,6 +18,14 @@ class FlagSecurePlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     private var activity: Activity? = null
 
+    /**
+     * Whether `FLAG_SECURE` was last set (`true`) or unset (`false`) through this plugin, or `null` if neither was
+     * called yet.
+     *
+     * Used to apply the same state to the window of a new activity attached to the engine.
+     */
+    private var flagSecureRequested: Boolean? = null
+
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flag_secure")
         channel.setMethodCallHandler(this)
@@ -69,6 +77,7 @@ class FlagSecurePlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         }
 
         window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        flagSecureRequested = true
 
         result.success(true)
     }
@@ -85,12 +94,30 @@ class FlagSecurePlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         }
 
         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        flagSecureRequested = false
 
         result.success(true)
     }
 
+    /**
+     * Applies the last state requested through this plugin to the window of the current activity, if any.
+     *
+     * The flag belongs to the window, so a new activity doesn't have it. Does nothing if neither [setFlagSecure] nor
+     * [unsetFlagSecure] was called yet, to keep the flags the application set itself.
+     */
+    private fun applyRequestedFlagSecure() {
+        val window = activity?.window ?: return
+
+        when (flagSecureRequested) {
+            true -> window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+            false -> window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+            null -> {}
+        }
+    }
+
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
         activity = binding.activity
+        applyRequestedFlagSecure()
     }
 
     override fun onDetachedFromActivityForConfigChanges() {
@@ -99,6 +126,7 @@ class FlagSecurePlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
         activity = binding.activity
+        applyRequestedFlagSecure()
     }
 
     override fun onDetachedFromActivity() {

@@ -2,9 +2,11 @@
 
 Flutter plugin published on pub.dev to set, unset and read Android's `FLAG_SECURE` at runtime (it hides the app from screenshots, screen recordings and the recent apps). Android only; on other platforms the methods do nothing and `isSet` returns `null`. BSD-3-Clause.
 
-Its main user is Material Notes (`maelchiotti/LocalMaterialNotes`, `SystemUtils().setFlagSecureIfNeeded()`): treat any change of a public signature as breaking.
+Apps call it to hide their content: treat any change of a public signature as breaking.
 
 ## Commands
+
+The Flutter version is pinned in `.fvmrc`. Locally, run Flutter and Dart through `fvm` (`fvm flutter ...`, `fvm dart ...`).
 
 - Install: `flutter pub get` (and in `example`).
 - Format: `dart format <files>` (default width, 80).
@@ -29,7 +31,7 @@ A new method goes through the four layers: the public API, the platform interfac
 
 ## Code style
 
-- `flutter_lints` with `public_member_api_docs`, `always_put_control_body_on_new_line`, `curly_braces_in_flow_control_structures`.
+- `flutter_lints` with `strict-inference`, `public_member_api_docs`, `always_use_package_imports`, `always_put_control_body_on_new_line`, `curly_braces_in_flow_control_structures` and `unawaited_futures`.
 - Package imports (`package:flag_secure/...`).
 - Every public member has a `///` doc comment. Kotlin functions have a KDoc comment.
 
