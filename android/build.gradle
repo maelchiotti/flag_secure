@@ -1,4 +1,4 @@
-group = "com.maelchiotti.flag_secure.flag_secure"
+group = "com.maelchiotti.flag_secure"
 version = "1.0-SNAPSHOT"
 
 buildscript {
@@ -24,7 +24,7 @@ allprojects {
 apply plugin: "com.android.library"
 
 android {
-    namespace = "com.maelchiotti.flag_secure.flag_secure"
+    namespace = "com.maelchiotti.flag_secure"
 
     compileSdk = 34
 

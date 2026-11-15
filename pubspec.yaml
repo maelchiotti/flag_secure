@@ -23,5 +23,5 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.maelchiotti.flag_secure.flag_secure
+        package: com.maelchiotti.flag_secure
         pluginClass: FlagSecurePlugin

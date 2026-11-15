@@ -1,4 +1,4 @@
-package com.maelchiotti.flag_secure.flag_secure
+package com.maelchiotti.flag_secure
 
 import android.app.Activity
 import android.view.WindowManager
