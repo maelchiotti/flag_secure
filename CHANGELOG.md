@@ -13,6 +13,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   the plugin no longer applies the Kotlin Gradle Plugin
 - Raised the minimum versions to Flutter 3.44 and Dart 3.12
 
+## 2.0.3
+
+### Fixed
+
+- Apply `FLAG_SECURE` again to a new activity attached to the engine (for example after a configuration change), as set or unset last.
+
 ## 2.0.2
 
 ## Changed
