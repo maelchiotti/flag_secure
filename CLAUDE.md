@@ -25,7 +25,7 @@ Federated-style plugin in one package:
 - `lib/flag_secure.dart`: the public API, `FlagSecure.isSet`, `FlagSecure.set()`, `FlagSecure.unset()`, static and documented with a `try`/`on PlatformException` example.
 - `lib/flag_secure_platform_interface.dart`: `FlagSecurePlatform` (`plugin_platform_interface`, with a token).
 - `lib/flag_secure_method_channel.dart`: `MethodChannelFlagSecure`, on the `flag_secure` channel, with the methods `isSet`, `set` and `unset`. It returns early when `Platform.isAndroid` (`universal_io`) is false.
-- `android/src/main/kotlin/com/maelchiotti/flag_secure/flag_secure/FlagSecurePlugin.kt`: the native side (`ActivityAware`), which adds or clears `WindowManager.LayoutParams.FLAG_SECURE` on the activity window and answers `not-found-activity` when there is no activity.
+- `android/src/main/kotlin/com/maelchiotti/flag_secure/FlagSecurePlugin.kt`: the native side (`ActivityAware`), which adds or clears `WindowManager.LayoutParams.FLAG_SECURE` on the activity window and answers `not-found-activity` when there is no activity.
 
 A new method goes through the four layers: the public API, the platform interface, the method channel (with the non-Android guard) and the Kotlin `onMethodCall`, with the same method name everywhere. Then show it in `example/lib/main.dart` and the README.
 
